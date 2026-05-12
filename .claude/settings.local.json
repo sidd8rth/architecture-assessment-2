@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.airtel.in)",
+      "Bash(npm create *)",
+      "Bash(cd /Users/siporwal/Documents/Code && npm create vite@latest Architecture -- --template react-ts 2>&1)",
+      "Bash(npm --version)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(sudo chmod -R 777 ~/.npm/_cacache)",
+      "Bash(rm -rf ~/.npm/_cacache/tmp 2>&1 && npm install -D vite @vitejs/plugin-react typescript @types/react @types/react-dom 2>&1 | tail -10)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(kill 28350)"
+    ]
+  }
+}

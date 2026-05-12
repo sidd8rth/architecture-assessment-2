@@ -1,0 +1,11 @@
+[
+  { "id": "ransomware", "label": "Ransomware" },
+  { "id": "data_exfiltration", "label": "Data Exfiltration" },
+  { "id": "ddos", "label": "DDoS Attacks" },
+  { "id": "compliance_pressure", "label": "Compliance Pressure" },
+  { "id": "insider_threat", "label": "Insider Threats" },
+  { "id": "cloud_misconfig", "label": "Cloud Misconfiguration" },
+  { "id": "phishing_email", "label": "Phishing / Email Attacks" },
+  { "id": "ot_iot_exposure", "label": "OT / IoT Exposure" },
+  { "id": "third_party_risk", "label": "Third-Party / Supply Chain Risk" }
+]

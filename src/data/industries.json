@@ -1,0 +1,8 @@
+[
+  { "id": "bfsi", "label": "Banking, Financial Services & Insurance" },
+  { "id": "manufacturing_ot", "label": "Manufacturing & OT/Industrial" },
+  { "id": "healthcare", "label": "Healthcare & Pharma" },
+  { "id": "it_ites", "label": "IT / ITES / SaaS" },
+  { "id": "retail_ecomm", "label": "Retail & eCommerce" },
+  { "id": "govt_psu", "label": "Government & PSU" }
+]

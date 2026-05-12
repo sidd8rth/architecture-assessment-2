@@ -1,0 +1,8 @@
+{
+  "bfsi": ["DPDP", "RBI", "SEBI", "IRDAI", "CERT-In"],
+  "manufacturing_ot": ["DPDP", "CERT-In"],
+  "healthcare": ["DPDP", "CERT-In"],
+  "it_ites": ["DPDP", "CERT-In"],
+  "retail_ecomm": ["DPDP", "CERT-In"],
+  "govt_psu": ["DPDP", "CERT-In"]
+}
