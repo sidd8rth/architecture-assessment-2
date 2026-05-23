@@ -1,8 +1,8 @@
 [
-  { "id": "bfsi", "label": "Banking, Financial Services & Insurance" },
-  { "id": "manufacturing_ot", "label": "Manufacturing & OT/Industrial" },
-  { "id": "healthcare", "label": "Healthcare & Pharma" },
-  { "id": "it_ites", "label": "IT / ITES / SaaS" },
-  { "id": "retail_ecomm", "label": "Retail & eCommerce" },
-  { "id": "govt_psu", "label": "Government & PSU" }
+  { "id": "bfsi",             "label": "BFSI",                "icon": "🏦", "sub": "Banking, Financial Services & Insurance" },
+  { "id": "healthcare",       "label": "Healthcare",          "icon": "🏥", "sub": "Hospitals, pharma, diagnostics" },
+  { "id": "govt_psu",         "label": "PSU / Government",    "icon": "🏛️", "sub": "Public sector undertakings & govt bodies" },
+  { "id": "manufacturing_ot", "label": "Manufacturing & OT",  "icon": "🏭", "sub": "Industrial, energy, critical infrastructure" },
+  { "id": "it_ites",          "label": "IT / ITeS",           "icon": "💻", "sub": "Tech companies, SaaS, BPO, IT services" },
+  { "id": "retail_ecomm",     "label": "Retail & eCommerce",  "icon": "🛒", "sub": "Stores, eCommerce, logistics" }
 ]
