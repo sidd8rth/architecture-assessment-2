@@ -9,7 +9,7 @@ export default function Landing({ onStart }: Props) {
   return (
     <div className="h-screen flex flex-col bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0] overflow-hidden">
       <Header
-        caption="ARCHITECTURE BUILDER"
+        caption="Architecture Builder"
         breadcrumb={[
           { label: 'Home', href: 'https://www.airtel.in/business' },
           { label: 'Security', href: 'https://www.airtel.in/b2b/secure-workforce' },
@@ -43,10 +43,8 @@ export default function Landing({ onStart }: Props) {
 
                 {/* Body */}
                 <p className="mt-5 text-sm md:text-base text-gray-600 leading-relaxed">
-                  Answer five short questions about your environment, scale, industry, and
-                  top concerns. The tool generates a personalised Airtel Secure architecture,
-                  shows why each module was picked, and maps every recommendation to the
-                  Indian regulations you care about.
+                  Get a personalised Airtel Secure architecture with the reasoning behind every
+                  module and a clear view of how it maps to the Indian regulations you care about.
                 </p>
 
                 {/* CTA row */}

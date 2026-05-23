@@ -86,7 +86,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
   return (
     <div className="h-screen bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0] flex flex-col overflow-hidden">
       <Header
-        caption="ARCHITECTURE BUILDER"
+        caption="Architecture Builder"
         breadcrumb={[
           { label: 'Home', href: 'https://www.airtel.in/business' },
           { label: 'Security', href: 'https://www.airtel.in/b2b/secure-workforce' },

@@ -27,9 +27,9 @@ export default function Header({ breadcrumb, caption, rightSlot, sticky = false 
         <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
           {/* Left: Logo + optional caption */}
           <div className="flex items-center gap-4 min-w-0">
-            <Logo height={52} />
+            <Logo height={64} />
             {caption && (
-              <span className="text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase text-gray-500 hidden md:block">
+              <span className="text-sm md:text-base font-semibold text-gray-500 hidden md:block">
                 {caption}
               </span>
             )}

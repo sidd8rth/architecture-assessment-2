@@ -42,14 +42,14 @@ export default function CTA({ inputs, tier, moduleCount }: Props) {
   const contactHref = `${CONTACT_URL}?${params.toString()}`
 
   return (
-    <div className="mt-8 bg-gradient-to-br from-[#E40000] to-[#A30000] rounded-2xl p-8 md:p-10 text-white text-center shadow-lg overflow-hidden relative">
-      {/* Subtle decorative ring */}
+    <div className="mt-8 bg-gradient-to-br from-[#2D3748] to-[#1A202C] rounded-2xl p-8 md:p-10 text-white text-center shadow-lg overflow-hidden relative">
+      {/* Subtle decorative rings */}
       <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
       <div className="absolute -bottom-24 -left-16 w-48 h-48 rounded-full bg-white/5 pointer-events-none" />
 
       <div className="relative">
         <h3 className="text-2xl md:text-3xl font-bold mb-3">Ready to build this stack with Airtel?</h3>
-        <p className="text-red-100 text-sm md:text-base mb-7 max-w-2xl mx-auto">
+        <p className="text-gray-300 text-sm md:text-base mb-7 max-w-2xl mx-auto">
           Our security consultants will sit with your team, pressure-test this architecture
           against your {INDUSTRY_LABELS[inputs.industry] ?? 'organisation'} reality, and put
           together a deployment roadmap that actually fits.
@@ -58,16 +58,13 @@ export default function CTA({ inputs, tier, moduleCount }: Props) {
           href={contactHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[#E40000] font-bold rounded-xl hover:bg-red-50 transition-all duration-150 shadow-lg hover:shadow-xl"
+          className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#E40000] text-white font-bold rounded-xl hover:bg-[#C00000] transition-all duration-150 shadow-lg hover:shadow-xl"
         >
           Talk to an Expert
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
             <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>
-        <p className="mt-5 text-xs text-red-200/80">
-          Opens airtel.in/b2b/contact-us in a new tab.
-        </p>
       </div>
     </div>
   )
