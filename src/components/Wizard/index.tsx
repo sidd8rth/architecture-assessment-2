@@ -4,6 +4,7 @@ import industriesData from '../../data/industries.json'
 import concernsData from '../../data/concerns.json'
 import Header from '../Header'
 import Footer from '../Footer'
+import Icon, { type IconName } from '../Icon'
 
 interface Props {
   onComplete: (inputs: UserInputs) => void
@@ -12,23 +13,23 @@ interface Props {
 
 const STEPS = ['Environment', 'Organization Size', 'Industry', 'Security Concerns', 'Security Maturity']
 
-const ENV_OPTIONS: { id: Environment; label: string; icon: string; sub: string }[] = [
-  { id: 'on_prem',     label: 'On-Premises', icon: '🏢', sub: 'Mostly on-prem infrastructure' },
-  { id: 'hybrid',      label: 'Hybrid',      icon: '🔀', sub: 'Mix of on-prem and cloud' },
-  { id: 'multi_cloud', label: 'Cloud-First', icon: '☁️', sub: 'Multi-cloud or SaaS-heavy stack' },
+const ENV_OPTIONS: { id: Environment; label: string; icon: IconName; sub: string }[] = [
+  { id: 'on_prem',     label: 'On-Premises', icon: 'building', sub: 'Mostly on-prem infrastructure' },
+  { id: 'hybrid',      label: 'Hybrid',      icon: 'shuffle',  sub: 'Mix of on-prem and cloud' },
+  { id: 'multi_cloud', label: 'Cloud-First', icon: 'cloud',    sub: 'Multi-cloud or SaaS-heavy stack' },
 ]
 
-const SIZE_OPTIONS: { id: OrgSize; label: string; icon: string; sub: string }[] = [
-  { id: 'small',  label: 'Under 500',       icon: '👥', sub: 'Small team, lean security posture' },
-  { id: 'mid',    label: '500 – 2,000',     icon: '🏢', sub: 'Growing complexity, structured controls' },
-  { id: 'large',  label: '2,000 – 10,000',  icon: '🏬', sub: 'Enterprise scale, multi-team security' },
-  { id: 'xlarge', label: '10,000+',         icon: '🌐', sub: 'Large enterprise, comprehensive program' },
+const SIZE_OPTIONS: { id: OrgSize; label: string; icon: IconName; sub: string }[] = [
+  { id: 'small',  label: 'Under 500',      icon: 'users',      sub: 'Small team, lean security posture' },
+  { id: 'mid',    label: '500 – 2,000',    icon: 'building-2', sub: 'Growing complexity, structured controls' },
+  { id: 'large',  label: '2,000 – 10,000', icon: 'buildings',  sub: 'Enterprise scale, multi-team security' },
+  { id: 'xlarge', label: '10,000+',        icon: 'globe',      sub: 'Large enterprise, comprehensive program' },
 ]
 
-const MATURITY_OPTIONS: { id: Maturity; label: string; icon: string; sub: string }[] = [
-  { id: 'nascent',    label: 'Getting Started', icon: '🌱', sub: 'Basic controls, significant gaps remain' },
-  { id: 'developing', label: 'Developing',      icon: '🛠️', sub: 'Some controls in place, gaps remain' },
-  { id: 'mature',     label: 'Mature',          icon: '🛡️', sub: 'Comprehensive program, looking to optimise' },
+const MATURITY_OPTIONS: { id: Maturity; label: string; icon: IconName; sub: string }[] = [
+  { id: 'nascent',    label: 'Getting Started', icon: 'seedling',     sub: 'Basic controls, significant gaps remain' },
+  { id: 'developing', label: 'Developing',      icon: 'tools',        sub: 'Some controls in place, gaps remain' },
+  { id: 'mature',     label: 'Mature',          icon: 'shield-check', sub: 'Comprehensive program, looking to optimise' },
 ]
 
 export default function Wizard({ onComplete, onBack }: Props) {
@@ -104,9 +105,9 @@ export default function Wizard({ onComplete, onBack }: Props) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-4 md:py-6 overflow-y-auto">
-        <div className="w-full max-w-3xl animate-fadeUp">
-          <div className="bg-white rounded-3xl border border-[#EAEAEA] shadow-[0_2px_24px_-8px_rgba(0,0,0,0.08)] p-6 md:p-8 lg:p-10">
+      <div className="flex-1 flex items-start sm:items-center justify-center px-4 py-4 md:py-6 overflow-y-auto">
+        <div className="w-full max-w-3xl animate-fadeUp my-auto">
+          <div className="bg-white rounded-3xl border border-[#EAEAEA] shadow-[0_2px_24px_-8px_rgba(0,0,0,0.08)] p-5 sm:p-6 md:p-8 lg:p-10">
 
           {/* Step 0: Environment */}
           {step === 0 && (
@@ -151,7 +152,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
                 {industriesData.map(opt => (
                   <OptionCard
                     key={opt.id}
-                    icon={(opt as { icon?: string }).icon ?? '•'}
+                    icon={(opt as { icon: IconName }).icon}
                     title={opt.label}
                     subtitle={(opt as { sub?: string }).sub ?? ''}
                     selected={industry === opt.id}
@@ -177,7 +178,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
                   return (
                     <OptionCard
                       key={opt.id}
-                      icon={(opt as { icon?: string }).icon ?? '•'}
+                      icon={(opt as { icon: IconName }).icon}
                       title={opt.label}
                       subtitle={(opt as { sub?: string }).sub ?? ''}
                       selected={selected}
@@ -272,7 +273,7 @@ function StepShell({
 function OptionCard({
   icon, title, subtitle, selected, disabled = false, onClick,
 }: {
-  icon: string
+  icon: IconName
   title: string
   subtitle: string
   selected: boolean
@@ -291,13 +292,17 @@ function OptionCard({
           : 'border-transparent bg-[#F3F4F6] hover:bg-[#EEEFF1] hover:-translate-y-0.5 hover:shadow-sm'
       }`}
     >
-      <div className="text-xl mb-2">{icon}</div>
+      <div className={`mb-2.5 inline-flex items-center justify-center w-9 h-9 rounded-lg ${
+        selected ? 'bg-white text-[#E40000]' : 'bg-white text-[#1A1A1A]'
+      }`}>
+        <Icon name={icon} size={20} />
+      </div>
       <div className="font-bold text-sm md:text-base text-[#1A1A1A] leading-tight">{title}</div>
       {subtitle && (
         <div className="text-xs text-gray-500 mt-1 leading-snug">{subtitle}</div>
       )}
       {selected && (
-        <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-[#E40000] flex items-center justify-center">
+        <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-[#E40000] flex items-center justify-center shadow-sm">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
             <path d="M5 12l5 5L20 7" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

@@ -1,11 +1,11 @@
 [
-  { "id": "ransomware",          "label": "Ransomware",         "icon": "🔒", "sub": "Encryption attacks, recovery cost" },
-  { "id": "data_exfiltration",   "label": "Data Exfiltration",  "icon": "📤", "sub": "Sensitive data leaving the org" },
-  { "id": "ddos",                "label": "DDoS Attacks",       "icon": "🌊", "sub": "Service availability under flood" },
-  { "id": "compliance_pressure", "label": "Compliance Pressure","icon": "📋", "sub": "Audits, regulatory exposure" },
-  { "id": "insider_threat",      "label": "Insider Threats",    "icon": "👤", "sub": "Risk from employees & partners" },
-  { "id": "cloud_misconfig",     "label": "Cloud Misconfig",    "icon": "☁️", "sub": "Exposed buckets, weak IAM" },
-  { "id": "phishing_email",      "label": "Phishing / Email",   "icon": "📧", "sub": "BEC, credential theft, malware" },
-  { "id": "ot_iot_exposure",     "label": "OT / IoT Exposure",  "icon": "⚙️", "sub": "Industrial systems, connected devices" },
-  { "id": "third_party_risk",    "label": "Third-Party Risk",   "icon": "🔗", "sub": "Vendor & supply chain risk" }
+  { "id": "ransomware",          "label": "Ransomware",          "icon": "lock",          "sub": "Encryption attacks, recovery cost" },
+  { "id": "data_exfiltration",   "label": "Data Exfiltration",   "icon": "arrow-out",     "sub": "Sensitive data leaving the org" },
+  { "id": "ddos",                "label": "DDoS Attacks",        "icon": "bolt",          "sub": "Service availability under flood" },
+  { "id": "compliance_pressure", "label": "Compliance Pressure", "icon": "document",      "sub": "Audits, regulatory exposure" },
+  { "id": "insider_threat",      "label": "Insider Threats",     "icon": "user-circle",   "sub": "Risk from employees & partners" },
+  { "id": "cloud_misconfig",     "label": "Cloud Misconfig",     "icon": "cloud-warning", "sub": "Exposed buckets, weak IAM" },
+  { "id": "phishing_email",      "label": "Phishing / Email",    "icon": "envelope",      "sub": "BEC, credential theft, malware" },
+  { "id": "ot_iot_exposure",     "label": "OT / IoT Exposure",   "icon": "cog",           "sub": "Industrial systems, IoT devices" },
+  { "id": "third_party_risk",    "label": "Third-Party Risk",    "icon": "link",          "sub": "Vendor & supply chain risk" }
 ]
