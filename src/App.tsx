@@ -39,8 +39,7 @@ const SIZE_LABEL: Record<string, string> = {
 const ENV_LABEL: Record<string, string> = {
   on_prem: 'On-Premises',
   hybrid: 'Hybrid',
-  multi_cloud: 'Multi-Cloud',
-  saas_heavy: 'SaaS-Heavy',
+  multi_cloud: 'Cloud-First',
 }
 
 function ContextPill({ label, accent = false }: { label: string; accent?: boolean }) {

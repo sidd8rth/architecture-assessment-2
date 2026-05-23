@@ -22,7 +22,6 @@ const ENV_ICONS: Record<string, string> = {
   on_prem: '🏢',
   hybrid: '🔀',
   multi_cloud: '☁️',
-  saas_heavy: '🌐',
 }
 
 const SIZE_LABELS: Record<string, string> = {

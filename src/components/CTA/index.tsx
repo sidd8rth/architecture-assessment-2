@@ -10,8 +10,7 @@ interface Props {
 const ENV_LABELS: Record<string, string> = {
   on_prem: 'On-Premises',
   hybrid: 'Hybrid Cloud',
-  multi_cloud: 'Multi-Cloud',
-  saas_heavy: 'SaaS-Heavy',
+  multi_cloud: 'Cloud-First',
 }
 
 const SIZE_LABELS: Record<string, string> = {

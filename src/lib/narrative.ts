@@ -4,8 +4,7 @@ import type { AdvisoryItem } from './advisory'
 const ENV_LABELS: Record<string, string> = {
   on_prem: 'on-premises',
   hybrid: 'hybrid cloud',
-  multi_cloud: 'multi-cloud',
-  saas_heavy: 'SaaS-heavy',
+  multi_cloud: 'cloud-first',
 }
 
 const SIZE_LABELS: Record<string, string> = {

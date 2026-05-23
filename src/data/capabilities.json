@@ -4,50 +4,115 @@
     "name": "Firewall",
     "bucket": "secure_access",
     "layer": "perimeter",
-    "concerns_addressed": ["ransomware", "data_exfiltration", "phishing_email", "third_party_risk"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ransomware",
+      "data_exfiltration",
+      "phishing_email",
+      "third_party_risk"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "retail_ecomm", "govt_psu"],
-    "regulations": ["DPDP", "RBI", "CERT-In", "SEBI"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
+    "regulations": [
+      "DPDP",
+      "RBI",
+      "CERT-In",
+      "SEBI"
+    ],
     "is_foundational": true,
-    "description": "Network perimeter defense — first line against unauthorized traffic."
+    "description": "Network perimeter defense \u2014 first line against unauthorized traffic."
   },
   {
     "id": "anti_ddos",
     "name": "Anti-DDoS",
     "bucket": "secure_access",
     "layer": "perimeter",
-    "concerns_addressed": ["ddos"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ddos"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "it_ites", "retail_ecomm", "govt_psu"],
-    "regulations": ["CERT-In"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
+    "regulations": [
+      "CERT-In"
+    ],
     "is_foundational": false,
-    "description": "Backbone-level DDoS scrubbing — Airtel's network-native advantage."
+    "description": "Backbone-level DDoS scrubbing \u2014 Airtel's network-native advantage."
   },
   {
     "id": "ndr",
     "name": "NDR",
     "bucket": "secure_access",
     "layer": "perimeter",
-    "concerns_addressed": ["ransomware", "insider_threat", "data_exfiltration"],
-    "environments": ["on_prem", "hybrid", "multi_cloud"],
+    "concerns_addressed": [
+      "ransomware",
+      "insider_threat",
+      "data_exfiltration"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "govt_psu"],
-    "regulations": ["RBI", "CERT-In"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "govt_psu"
+    ],
+    "regulations": [
+      "RBI",
+      "CERT-In"
+    ],
     "is_foundational": false,
-    "description": "Network Detection & Response — catches lateral movement and east-west threats."
+    "description": "Network Detection & Response \u2014 catches lateral movement and east-west threats."
   },
   {
     "id": "sse",
     "name": "Secure Service Edge",
     "bucket": "secure_access",
     "layer": "perimeter",
-    "concerns_addressed": ["third_party_risk", "data_exfiltration", "phishing_email"],
-    "environments": ["hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "third_party_risk",
+      "data_exfiltration",
+      "phishing_email"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["it_ites", "bfsi", "retail_ecomm", "healthcare"],
-    "regulations": ["DPDP"],
+    "critical_for_industries": [
+      "it_ites",
+      "bfsi",
+      "retail_ecomm",
+      "healthcare"
+    ],
+    "regulations": [
+      "DPDP"
+    ],
     "is_foundational": false,
     "description": "Cloud-delivered security edge for distributed and remote workforces."
   },
@@ -56,88 +121,199 @@
     "name": "NAC",
     "bucket": "secure_access",
     "layer": "perimeter",
-    "concerns_addressed": ["insider_threat", "third_party_risk", "ot_iot_exposure"],
-    "environments": ["on_prem", "hybrid"],
+    "concerns_addressed": [
+      "insider_threat",
+      "third_party_risk",
+      "ot_iot_exposure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["manufacturing_ot", "healthcare", "bfsi", "govt_psu"],
-    "regulations": ["DPDP", "RBI"],
+    "critical_for_industries": [
+      "manufacturing_ot",
+      "healthcare",
+      "bfsi",
+      "govt_psu"
+    ],
+    "regulations": [
+      "DPDP",
+      "RBI"
+    ],
     "is_foundational": false,
-    "description": "Network Access Control — controls who and what gets on the network."
+    "description": "Network Access Control \u2014 controls who and what gets on the network."
   },
   {
     "id": "epp",
     "name": "Endpoint Management & Protection",
     "bucket": "secure_workforce",
     "layer": "workforce",
-    "concerns_addressed": ["ransomware", "phishing_email", "insider_threat"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ransomware",
+      "phishing_email",
+      "insider_threat"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "retail_ecomm", "govt_psu"],
-    "regulations": ["DPDP", "RBI", "CERT-In"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
+    "regulations": [
+      "DPDP",
+      "RBI",
+      "CERT-In"
+    ],
     "is_foundational": true,
-    "description": "Endpoint Protection Platform — secures every user device."
+    "description": "Endpoint Protection Platform \u2014 secures every user device."
   },
   {
     "id": "iam_workforce",
     "name": "Identity & Access Management",
     "bucket": "secure_workforce",
     "layer": "workforce",
-    "concerns_addressed": ["insider_threat", "third_party_risk", "data_exfiltration"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "insider_threat",
+      "third_party_risk",
+      "data_exfiltration"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "healthcare", "it_ites", "retail_ecomm", "govt_psu"],
-    "regulations": ["DPDP", "RBI", "SEBI", "IRDAI"],
+    "critical_for_industries": [
+      "bfsi",
+      "healthcare",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu",
+      "manufacturing_ot"
+    ],
+    "regulations": [
+      "DPDP",
+      "RBI",
+      "SEBI",
+      "IRDAI"
+    ],
     "is_foundational": true,
-    "description": "Identity governance, SSO, and MFA — controls who can access what."
+    "description": "Identity governance, SSO, and MFA \u2014 controls who can access what."
   },
   {
     "id": "ddc",
     "name": "Data Discovery & Classification",
     "bucket": "secure_workforce",
     "layer": "workforce",
-    "concerns_addressed": ["data_exfiltration", "compliance_pressure"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "data_exfiltration",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "healthcare", "it_ites", "govt_psu"],
-    "regulations": ["DPDP"],
+    "critical_for_industries": [
+      "bfsi",
+      "healthcare",
+      "it_ites",
+      "govt_psu"
+    ],
+    "regulations": [
+      "DPDP"
+    ],
     "is_foundational": false,
-    "description": "Finds and classifies sensitive data — foundation for DPDP compliance."
+    "description": "Finds and classifies sensitive data \u2014 foundation for DPDP compliance."
   },
   {
     "id": "dlp",
     "name": "DLP",
     "bucket": "secure_workforce",
     "layer": "workforce",
-    "concerns_addressed": ["data_exfiltration", "insider_threat", "compliance_pressure"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "data_exfiltration",
+      "insider_threat",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "healthcare", "it_ites", "govt_psu"],
-    "regulations": ["DPDP", "RBI", "IRDAI"],
+    "critical_for_industries": [
+      "bfsi",
+      "healthcare",
+      "it_ites",
+      "govt_psu"
+    ],
+    "regulations": [
+      "DPDP",
+      "RBI",
+      "IRDAI"
+    ],
     "is_foundational": false,
-    "description": "Data Loss Prevention — stops sensitive data from leaving the org."
+    "description": "Data Loss Prevention \u2014 stops sensitive data from leaving the org."
   },
   {
     "id": "vdi",
     "name": "VDI",
     "bucket": "secure_workforce",
     "layer": "workforce",
-    "concerns_addressed": ["insider_threat", "third_party_risk", "data_exfiltration"],
-    "environments": ["hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "insider_threat",
+      "third_party_risk",
+      "data_exfiltration"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "large",
-    "critical_for_industries": ["bfsi", "it_ites", "govt_psu"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "govt_psu"
+    ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Virtual Desktop Infrastructure — for contractors and BYOD environments."
+    "description": "Virtual Desktop Infrastructure \u2014 for contractors and BYOD environments."
   },
   {
     "id": "email_sec",
     "name": "Email Security",
     "bucket": "secure_workforce",
     "layer": "workforce",
-    "concerns_addressed": ["phishing_email", "ransomware", "data_exfiltration"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "phishing_email",
+      "ransomware",
+      "data_exfiltration"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "retail_ecomm", "govt_psu"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
     "regulations": [],
     "is_foundational": true,
     "description": "Phishing, BEC, and email-borne malware protection."
@@ -147,10 +323,21 @@
     "name": "Browser Security",
     "bucket": "secure_workforce",
     "layer": "workforce",
-    "concerns_addressed": ["phishing_email", "data_exfiltration", "insider_threat"],
-    "environments": ["hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "phishing_email",
+      "data_exfiltration",
+      "insider_threat"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "it_ites", "retail_ecomm"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "retail_ecomm"
+    ],
     "regulations": [],
     "is_foundational": false,
     "description": "Enterprise browser security for SaaS-heavy environments."
@@ -160,49 +347,105 @@
     "name": "Web App & API Protection",
     "bucket": "secure_workload",
     "layer": "workload",
-    "concerns_addressed": ["ddos", "data_exfiltration", "ransomware"],
-    "environments": ["hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ddos",
+      "data_exfiltration",
+      "ransomware"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "it_ites", "retail_ecomm", "healthcare"],
-    "regulations": ["RBI", "DPDP"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "retail_ecomm",
+      "healthcare"
+    ],
+    "regulations": [
+      "RBI",
+      "DPDP"
+    ],
     "is_foundational": false,
-    "description": "WAF + API security — protects public-facing apps and APIs."
+    "description": "WAF + API security \u2014 protects public-facing apps and APIs."
   },
   {
     "id": "dam",
     "name": "DAM",
     "bucket": "secure_workload",
     "layer": "workload",
-    "concerns_addressed": ["data_exfiltration", "insider_threat", "compliance_pressure"],
-    "environments": ["on_prem", "hybrid", "multi_cloud"],
+    "concerns_addressed": [
+      "data_exfiltration",
+      "insider_threat",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "healthcare", "govt_psu"],
-    "regulations": ["RBI", "DPDP", "IRDAI"],
+    "critical_for_industries": [
+      "bfsi",
+      "healthcare",
+      "govt_psu"
+    ],
+    "regulations": [
+      "RBI",
+      "DPDP",
+      "IRDAI"
+    ],
     "is_foundational": false,
-    "description": "Database Activity Monitoring — audits every DB query."
+    "description": "Database Activity Monitoring \u2014 audits every DB query."
   },
   {
     "id": "cnapp",
     "name": "Cloud Security (CNAPP)",
     "bucket": "secure_workload",
     "layer": "workload",
-    "concerns_addressed": ["cloud_misconfig", "data_exfiltration", "compliance_pressure"],
-    "environments": ["hybrid", "multi_cloud"],
+    "concerns_addressed": [
+      "cloud_misconfig",
+      "data_exfiltration",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "it_ites", "healthcare", "retail_ecomm"],
-    "regulations": ["DPDP", "RBI"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "healthcare",
+      "retail_ecomm"
+    ],
+    "regulations": [
+      "DPDP",
+      "RBI"
+    ],
     "is_foundational": false,
-    "description": "Cloud-Native App Protection Platform — full-stack cloud security."
+    "description": "Cloud-Native App Protection Platform \u2014 full-stack cloud security."
   },
   {
     "id": "appsec",
     "name": "AppSec",
     "bucket": "secure_workload",
     "layer": "workload",
-    "concerns_addressed": ["data_exfiltration", "ransomware"],
-    "environments": ["hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "data_exfiltration",
+      "ransomware"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["it_ites", "bfsi", "retail_ecomm"],
+    "critical_for_industries": [
+      "it_ites",
+      "bfsi",
+      "retail_ecomm"
+    ],
     "regulations": [],
     "is_foundational": false,
     "description": "Application security testing across the SDLC."
@@ -212,11 +455,24 @@
     "name": "DSPM",
     "bucket": "secure_workload",
     "layer": "workload",
-    "concerns_addressed": ["cloud_misconfig", "data_exfiltration", "compliance_pressure"],
-    "environments": ["hybrid", "multi_cloud"],
+    "concerns_addressed": [
+      "cloud_misconfig",
+      "data_exfiltration",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "large",
-    "critical_for_industries": ["bfsi", "it_ites", "healthcare"],
-    "regulations": ["DPDP"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "healthcare"
+    ],
+    "regulations": [
+      "DPDP"
+    ],
     "is_foundational": false,
     "description": "Data Security Posture Management for cloud data stores."
   },
@@ -225,10 +481,21 @@
     "name": "Workload IAM",
     "bucket": "secure_workload",
     "layer": "workload",
-    "concerns_addressed": ["cloud_misconfig", "insider_threat", "third_party_risk"],
-    "environments": ["hybrid", "multi_cloud"],
+    "concerns_addressed": [
+      "cloud_misconfig",
+      "insider_threat",
+      "third_party_risk"
+    ],
+    "environments": [
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["it_ites", "bfsi", "retail_ecomm"],
+    "critical_for_industries": [
+      "it_ites",
+      "bfsi",
+      "retail_ecomm"
+    ],
     "regulations": [],
     "is_foundational": false,
     "description": "Identity for workloads, services, and machine-to-machine access."
@@ -238,11 +505,22 @@
     "name": "Cloud AI Security",
     "bucket": "secure_workload",
     "layer": "workload",
-    "concerns_addressed": ["data_exfiltration", "cloud_misconfig"],
-    "environments": ["multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "data_exfiltration",
+      "cloud_misconfig"
+    ],
+    "environments": [
+      "multi_cloud"
+    ],
     "min_size": "large",
-    "critical_for_industries": ["it_ites", "bfsi", "healthcare"],
-    "regulations": ["DPDP"],
+    "critical_for_industries": [
+      "it_ites",
+      "bfsi",
+      "healthcare"
+    ],
+    "regulations": [
+      "DPDP"
+    ],
     "is_foundational": false,
     "description": "Security for AI/LLM workloads and AI-generated content risks."
   },
@@ -251,11 +529,31 @@
     "name": "AI SOC / MDR",
     "bucket": "managed_services",
     "layer": "operations",
-    "concerns_addressed": ["ransomware", "insider_threat", "data_exfiltration", "phishing_email"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ransomware",
+      "insider_threat",
+      "data_exfiltration",
+      "phishing_email"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "retail_ecomm", "govt_psu"],
-    "regulations": ["RBI", "CERT-In", "SEBI"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
+    "regulations": [
+      "RBI",
+      "CERT-In",
+      "SEBI"
+    ],
     "is_foundational": true,
     "description": "24x7 AI-powered SOC and Managed Detection & Response."
   },
@@ -264,10 +562,21 @@
     "name": "Threat Intel",
     "bucket": "managed_services",
     "layer": "operations",
-    "concerns_addressed": ["ransomware", "third_party_risk"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ransomware",
+      "third_party_risk"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "it_ites", "govt_psu"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "govt_psu"
+    ],
     "regulations": [],
     "is_foundational": false,
     "description": "Curated threat intelligence feeds tuned to Indian threat landscape."
@@ -277,10 +586,22 @@
     "name": "Deep & Dark Web Monitoring",
     "bucket": "managed_services",
     "layer": "operations",
-    "concerns_addressed": ["data_exfiltration", "third_party_risk"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "data_exfiltration",
+      "third_party_risk"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "it_ites", "retail_ecomm", "govt_psu"],
+    "critical_for_industries": [
+      "bfsi",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
     "regulations": [],
     "is_foundational": false,
     "description": "Monitors leaked credentials and chatter targeting your brand."
@@ -290,11 +611,27 @@
     "name": "Policy & Patch Management",
     "bucket": "managed_services",
     "layer": "operations",
-    "concerns_addressed": ["ransomware", "compliance_pressure"],
-    "environments": ["on_prem", "hybrid", "multi_cloud"],
+    "concerns_addressed": [
+      "ransomware",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "govt_psu"],
-    "regulations": ["RBI", "CERT-In"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "govt_psu"
+    ],
+    "regulations": [
+      "RBI",
+      "CERT-In"
+    ],
     "is_foundational": false,
     "description": "Centralized policy enforcement and vulnerability patching."
   },
@@ -303,13 +640,30 @@
     "name": "VAPT",
     "bucket": "professional_services",
     "layer": "advisory",
-    "concerns_addressed": ["data_exfiltration", "compliance_pressure"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "data_exfiltration",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "healthcare", "it_ites", "retail_ecomm", "govt_psu"],
-    "regulations": ["RBI", "SEBI", "CERT-In"],
+    "critical_for_industries": [
+      "bfsi",
+      "healthcare",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
+    "regulations": [
+      "RBI",
+      "SEBI",
+      "CERT-In"
+    ],
     "is_foundational": false,
-    "description": "Vulnerability Assessment & Penetration Testing — find gaps before attackers."
+    "description": "Vulnerability Assessment & Penetration Testing \u2014 find gaps before attackers."
   },
   {
     "id": "complex_impl",
@@ -317,9 +671,19 @@
     "bucket": "professional_services",
     "layer": "advisory",
     "concerns_addressed": [],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "govt_psu"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "govt_psu"
+    ],
     "regulations": [],
     "is_foundational": false,
     "description": "Expert-led deployment for complex, multi-module security stacks."
@@ -329,11 +693,30 @@
     "name": "Gap & Risk Assessment",
     "bucket": "professional_services",
     "layer": "advisory",
-    "concerns_addressed": ["compliance_pressure"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "compliance_pressure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "manufacturing_ot", "healthcare", "it_ites", "retail_ecomm", "govt_psu"],
-    "regulations": ["DPDP", "RBI", "SEBI", "IRDAI", "CERT-In"],
+    "critical_for_industries": [
+      "bfsi",
+      "manufacturing_ot",
+      "healthcare",
+      "it_ites",
+      "retail_ecomm",
+      "govt_psu"
+    ],
+    "regulations": [
+      "DPDP",
+      "RBI",
+      "SEBI",
+      "IRDAI",
+      "CERT-In"
+    ],
     "is_foundational": false,
     "description": "Baseline security gap analysis against industry frameworks."
   },
@@ -342,10 +725,21 @@
     "name": "Red Team-Blue Team",
     "bucket": "professional_services",
     "layer": "advisory",
-    "concerns_addressed": ["ransomware", "insider_threat"],
-    "environments": ["on_prem", "hybrid", "multi_cloud"],
+    "concerns_addressed": [
+      "ransomware",
+      "insider_threat"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "large",
-    "critical_for_industries": ["bfsi", "govt_psu", "it_ites"],
+    "critical_for_industries": [
+      "bfsi",
+      "govt_psu",
+      "it_ites"
+    ],
     "regulations": [],
     "is_foundational": false,
     "description": "Adversary simulation exercises for mature security programs."
@@ -355,11 +749,28 @@
     "name": "Incident Response Planning",
     "bucket": "incident_response",
     "layer": "advisory",
-    "concerns_addressed": ["ransomware", "data_exfiltration", "compliance_pressure"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ransomware",
+      "data_exfiltration",
+      "compliance_pressure"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "small",
-    "critical_for_industries": ["bfsi", "healthcare", "govt_psu", "it_ites"],
-    "regulations": ["RBI", "CERT-In", "IRDAI"],
+    "critical_for_industries": [
+      "bfsi",
+      "healthcare",
+      "govt_psu",
+      "it_ites"
+    ],
+    "regulations": [
+      "RBI",
+      "CERT-In",
+      "IRDAI"
+    ],
     "is_foundational": false,
     "description": "IR runbooks, playbooks, and tabletop exercises."
   },
@@ -368,11 +779,27 @@
     "name": "Forensics & RCA",
     "bucket": "incident_response",
     "layer": "advisory",
-    "concerns_addressed": ["ransomware", "data_exfiltration", "insider_threat"],
-    "environments": ["on_prem", "hybrid", "multi_cloud", "saas_heavy"],
+    "concerns_addressed": [
+      "ransomware",
+      "data_exfiltration",
+      "insider_threat"
+    ],
+    "environments": [
+      "on_prem",
+      "hybrid",
+      "multi_cloud"
+    ],
     "min_size": "mid",
-    "critical_for_industries": ["bfsi", "healthcare", "govt_psu"],
-    "regulations": ["RBI", "CERT-In", "IRDAI"],
+    "critical_for_industries": [
+      "bfsi",
+      "healthcare",
+      "govt_psu"
+    ],
+    "regulations": [
+      "RBI",
+      "CERT-In",
+      "IRDAI"
+    ],
     "is_foundational": false,
     "description": "Post-breach forensics and root cause analysis."
   }

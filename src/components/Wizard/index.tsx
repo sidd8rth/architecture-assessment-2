@@ -13,10 +13,9 @@ interface Props {
 const STEPS = ['Environment', 'Organization Size', 'Industry', 'Security Concerns', 'Security Maturity']
 
 const ENV_OPTIONS: { id: Environment; label: string; icon: string; sub: string }[] = [
-  { id: 'on_prem', label: 'On-Premises', icon: '🏢', sub: 'Mostly on-premises infrastructure' },
-  { id: 'hybrid', label: 'Hybrid', icon: '🔀', sub: 'Mix of on-prem and cloud' },
-  { id: 'multi_cloud', label: 'Multi-Cloud', icon: '☁️', sub: 'AWS + Azure + GCP' },
-  { id: 'saas_heavy', label: 'SaaS-Heavy', icon: '🌐', sub: 'Primarily SaaS-based' },
+  { id: 'on_prem',     label: 'On-Premises', icon: '🏢', sub: '' },
+  { id: 'hybrid',      label: 'Hybrid',      icon: '🔀', sub: '' },
+  { id: 'multi_cloud', label: 'Cloud-First', icon: '☁️', sub: '' },
 ]
 
 const SIZE_OPTIONS: { id: OrgSize; label: string; sub: string }[] = [
@@ -85,7 +84,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
   const progress = ((step) / STEPS.length) * 100
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
+    <div className="h-screen bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0] flex flex-col overflow-hidden">
       <Header
         caption="ARCHITECTURE BUILDER"
         breadcrumb={[
@@ -99,13 +98,13 @@ export default function Wizard({ onComplete, onBack }: Props) {
       {/* Progress bar */}
       <div className="h-1 bg-[#E5E5E5]">
         <div
-          className="h-1 bg-[#E40000] transition-all duration-500"
+          className="h-1 bg-gradient-to-r from-[#E40000] to-[#B30000] transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-10 md:py-16">
+      <div className="flex-1 flex items-center justify-center px-4 py-6 md:py-8 overflow-y-auto">
         <div className="w-full max-w-2xl animate-fadeUp">
           {/* Compact step dots */}
           <div className="flex items-center gap-1.5 mb-7">
@@ -130,7 +129,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
           {/* Step 0: Environment */}
           {step === 0 && (
             <StepShell title="What is your infrastructure environment?" subtitle="Select the option that best describes where your workloads live.">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 gap-3">
                 {ENV_OPTIONS.map(opt => (
                   <button
                     key={opt.id}
@@ -267,7 +266,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
               <button
                 onClick={handleNext}
                 disabled={!canAdvance()}
-                className="px-6 py-2 rounded-lg bg-[#E40000] text-white text-sm font-semibold hover:bg-red-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150"
+                className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#E40000] to-[#C00000] text-white text-sm font-semibold hover:from-[#C00000] hover:to-[#A00000] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150 shadow-sm hover:shadow-md"
               >
                 {step === 4 ? 'Build My Architecture →' : 'Next →'}
               </button>
@@ -283,8 +282,8 @@ export default function Wizard({ onComplete, onBack }: Props) {
 function StepShell({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2">{title}</h2>
-      <p className="text-sm text-gray-500 mb-6">{subtitle}</p>
+      <h2 className="text-xl md:text-2xl font-semibold text-[#1A1A1A] mb-1.5 tracking-tight">{title}</h2>
+      <p className="text-sm text-gray-500 mb-5">{subtitle}</p>
       {children}
     </div>
   )
