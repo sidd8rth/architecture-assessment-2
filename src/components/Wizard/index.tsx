@@ -86,7 +86,7 @@ export default function Wizard({ onComplete }: Props) {
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-[#E5E5E5] px-6 py-4 flex items-center justify-between">
-        <Logo height={32} />
+        <Logo height={44} />
         <span className="text-sm text-gray-500">Step {step + 1} of {STEPS.length}</span>
       </header>
 

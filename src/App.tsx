@@ -56,7 +56,7 @@ function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => vo
       {/* Header */}
       <header className="bg-white border-b border-[#E5E5E5] sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Logo height={32} />
+          <Logo height={44} />
           <div className="flex items-center gap-3">
             <span className="text-xs text-gray-500 hidden md:block">
               {inputs.industry.replace('_', ' ')} · {inputs.size} org · {inputs.environment.replace('_', ' ')}
