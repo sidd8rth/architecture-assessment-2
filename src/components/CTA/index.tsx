@@ -75,7 +75,7 @@ export default function CTA({ inputs, tier, moduleCount }: Props) {
           onClick={() => setOpen(true)}
           className="px-8 py-3 bg-white text-[#E40000] font-bold rounded-lg hover:bg-red-50 transition-all duration-150 shadow-lg hover:shadow-xl"
         >
-          Book a Consult →
+          Talk to an Expert
         </button>
       </div>
 
@@ -92,7 +92,7 @@ export default function CTA({ inputs, tier, moduleCount }: Props) {
               <>
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h3 className="text-lg font-bold text-[#1A1A1A]">Book a Security Consult</h3>
+                    <h3 className="text-lg font-bold text-[#1A1A1A]">Talk to an Expert</h3>
                     <p className="text-xs text-gray-500 mt-1">Pre-filled with your architecture context</p>
                   </div>
                   <button onClick={() => setOpen(false)} className="text-gray-400 hover:text-gray-600 text-xl">✕</button>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { UserInputs, Environment, OrgSize, Industry, Concern, Maturity } from '../../lib/types'
 import industriesData from '../../data/industries.json'
 import concernsData from '../../data/concerns.json'
+import Logo from '../Logo'
 
 interface Props {
   onComplete: (inputs: UserInputs) => void
@@ -85,12 +86,7 @@ export default function Wizard({ onComplete }: Props) {
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
       {/* Header */}
       <header className="bg-white border-b border-[#E5E5E5] px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="bg-[#E40000] rounded px-2 py-1">
-            <span className="text-white font-bold text-lg tracking-tight">airtel</span>
-          </div>
-          <span className="text-[#1A1A1A] font-semibold text-sm tracking-wide uppercase">Secure — Architecture Builder</span>
-        </div>
+        <Logo height={32} />
         <span className="text-sm text-gray-500">Step {step + 1} of {STEPS.length}</span>
       </header>
 
@@ -138,7 +134,6 @@ export default function Wizard({ onComplete }: Props) {
                   >
                     <div className="text-2xl mb-2">{opt.icon}</div>
                     <div className="font-semibold text-sm text-[#1A1A1A]">{opt.label}</div>
-                    <div className="text-xs text-gray-500 mt-1">{opt.sub}</div>
                   </button>
                 ))}
               </div>
@@ -161,7 +156,6 @@ export default function Wizard({ onComplete }: Props) {
                   >
                     <div className="font-bold text-lg text-[#E40000]">{opt.label}</div>
                     <div className="text-xs text-[#1A1A1A] font-medium mt-1">users</div>
-                    <div className="text-xs text-gray-500 mt-2">{opt.sub}</div>
                   </button>
                 ))}
               </div>

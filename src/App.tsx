@@ -13,6 +13,7 @@ import TierToggle from './components/TierToggle'
 import ComplianceOverlayToggle from './components/ComplianceOverlay'
 import NarrativeSummary from './components/NarrativeSummary'
 import CTA from './components/CTA'
+import Logo from './components/Logo'
 
 const capabilities = capabilitiesData as Capability[]
 const regulations = regulationsData as Record<string, string[]>
@@ -55,14 +56,7 @@ function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => vo
       {/* Header */}
       <header className="bg-white border-b border-[#E5E5E5] sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-[#E40000] rounded px-2 py-1">
-              <span className="text-white font-bold text-lg tracking-tight">airtel</span>
-            </div>
-            <span className="text-[#1A1A1A] font-semibold text-sm tracking-wide uppercase hidden sm:block">
-              Secure — Architecture Builder
-            </span>
-          </div>
+          <Logo height={32} />
           <div className="flex items-center gap-3">
             <span className="text-xs text-gray-500 hidden md:block">
               {inputs.industry.replace('_', ' ')} · {inputs.size} org · {inputs.environment.replace('_', ' ')}
