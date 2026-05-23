@@ -7,16 +7,53 @@ import capabilitiesData from './data/capabilities.json'
 import regulationsData from './data/regulations.json'
 import type { Capability } from './lib/types'
 
+import Landing from './components/Landing'
 import Wizard from './components/Wizard'
 import Diagram from './components/Diagram'
 import TierToggle from './components/TierToggle'
 import ComplianceOverlayToggle from './components/ComplianceOverlay'
 import NarrativeSummary from './components/NarrativeSummary'
 import CTA from './components/CTA'
-import Logo from './components/Logo'
+import Header from './components/Header'
+import Footer from './components/Footer'
+
+type Stage = 'landing' | 'wizard' | 'result'
 
 const capabilities = capabilitiesData as Capability[]
 const regulations = regulationsData as Record<string, string[]>
+
+const INDUSTRY_LABEL: Record<string, string> = {
+  bfsi: 'BFSI',
+  manufacturing_ot: 'Manufacturing & OT',
+  healthcare: 'Healthcare & Pharma',
+  it_ites: 'IT / ITES / SaaS',
+  retail_ecomm: 'Retail & eCommerce',
+  govt_psu: 'Government & PSU',
+}
+const SIZE_LABEL: Record<string, string> = {
+  small: 'Under 500 users',
+  mid: '500–2,000 users',
+  large: '2,000–10,000 users',
+  xlarge: '10,000+ users',
+}
+const ENV_LABEL: Record<string, string> = {
+  on_prem: 'On-Premises',
+  hybrid: 'Hybrid',
+  multi_cloud: 'Multi-Cloud',
+  saas_heavy: 'SaaS-Heavy',
+}
+
+function ContextPill({ label, accent = false }: { label: string; accent?: boolean }) {
+  return (
+    <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${
+      accent
+        ? 'bg-[#FFE5E5] text-[#E40000]'
+        : 'bg-[#F0F0F0] text-gray-700'
+    }`}>
+      {label}
+    </span>
+  )
+}
 
 function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => void }) {
   const [tier, setTier] = useState<Tier>('standard')
@@ -25,21 +62,16 @@ function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => vo
   const industryRegs = regulations[inputs.industry] ?? []
   const maturity = inferMaturity(inputs)
 
-  // Score all capabilities
   const scored: ScoredCapability[] = capabilities.map(cap =>
     scoreCapability(cap, inputs, industryRegs)
   )
 
-  // Build tiers
   const { starter, standard, advanced, futureState } = buildTiers(scored, inputs.size)
-
   const tierModules: Record<Tier, ScoredCapability[]> = { starter, standard, advanced }
   const activeModules = tierModules[tier]
 
-  // Advisory (based on standard tier count)
   const advisoryItems = computeAdvisory(inputs, maturity, industryRegs, standard.length)
 
-  // Narrative
   const { intro, moduleReasons, regulationsCovered, growthPath } = generateNarrative(
     inputs,
     activeModules,
@@ -52,33 +84,43 @@ function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => vo
   const counts = { starter: starter.length, standard: standard.length, advanced: advanced.length + futureState.length }
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA]">
-      {/* Header */}
-      <header className="bg-white border-b border-[#E5E5E5] sticky top-0 z-40">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Logo height={52} />
-          <div className="flex items-center gap-3">
-            <span className="text-xs text-gray-500 hidden md:block">
-              {inputs.industry.replace('_', ' ')} · {inputs.size} org · {inputs.environment.replace('_', ' ')}
-            </span>
-            <button
-              onClick={onReset}
-              className="px-4 py-2 border border-[#E5E5E5] rounded-lg text-sm font-medium text-gray-600 hover:border-gray-300 transition-all"
-            >
-              ← Start Over
-            </button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
+      <Header
+        caption="ARCHITECTURE BUILDER"
+        breadcrumb={[
+          { label: 'Home', href: 'https://www.airtel.in/business' },
+          { label: 'Security', href: 'https://www.airtel.in/b2b/secure-workforce' },
+          { label: 'Architecture Builder', onClick: onReset },
+          { label: 'Your Stack' },
+        ]}
+        sticky
+        rightSlot={
+          <button
+            onClick={onReset}
+            className="hidden sm:inline-flex items-center px-4 py-2.5 border border-[#E5E5E5] rounded-lg text-sm font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all"
+          >
+            ← Start Over
+          </button>
+        }
+      />
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        {/* Title + tier toggle row */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+      <main className="flex-1 max-w-6xl mx-auto w-full px-6 py-8">
+        {/* Title + tier toggle */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 animate-fadeUp">
           <div>
-            <h1 className="text-2xl font-bold text-[#1A1A1A]">Your Recommended Security Architecture</h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <h1 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] tracking-tight">
+              Your Recommended Security Architecture
+            </h1>
+            <p className="text-sm text-gray-500 mt-1.5">
               {activeModules.length} modules · {advisoryItems.length} advisory engagements · {regulationsCovered.length} regulations covered
             </p>
+            {/* Context pills */}
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              <ContextPill label={INDUSTRY_LABEL[inputs.industry] ?? inputs.industry} accent />
+              <ContextPill label={SIZE_LABEL[inputs.size] ?? inputs.size} />
+              <ContextPill label={ENV_LABEL[inputs.environment] ?? inputs.environment} />
+              <ContextPill label={`${maturity.charAt(0).toUpperCase()}${maturity.slice(1)} maturity`} />
+            </div>
           </div>
           <div className="flex items-center gap-3 flex-wrap">
             <ComplianceOverlayToggle show={showCompliance} onToggle={() => setShowCompliance(s => !s)} />
@@ -87,7 +129,7 @@ function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => vo
         </div>
 
         {/* Diagram */}
-        <div className="bg-white rounded-2xl border border-[#E5E5E5] shadow-sm p-5">
+        <div className="bg-white rounded-2xl border border-[#EAEAEA] shadow-sm p-5 md:p-6">
           <Diagram
             activeModules={activeModules}
             futureState={tier === 'advanced' ? futureState : []}
@@ -110,24 +152,40 @@ function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => vo
 
         {/* CTA */}
         <CTA inputs={inputs} tier={tier} moduleCount={activeModules.length} />
-      </div>
+      </main>
 
-      {/* Footer */}
-      <footer className="border-t border-[#E5E5E5] mt-12 py-6">
-        <div className="max-w-6xl mx-auto px-6 text-center text-xs text-gray-400">
-          Airtel Secure — Architecture recommendations are advisory in nature and based on inputs provided. Consult an Airtel security expert for a formal assessment.
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
 
 export default function App() {
+  const [stage, setStage] = useState<Stage>('landing')
   const [inputs, setInputs] = useState<UserInputs | null>(null)
 
-  if (!inputs) {
-    return <Wizard onComplete={setInputs} />
+  if (stage === 'landing') {
+    return <Landing onStart={() => setStage('wizard')} />
   }
 
-  return <ResultPage inputs={inputs} onReset={() => setInputs(null)} />
+  if (stage === 'wizard' || !inputs) {
+    return (
+      <Wizard
+        onComplete={(answers) => {
+          setInputs(answers)
+          setStage('result')
+        }}
+        onBack={() => setStage('landing')}
+      />
+    )
+  }
+
+  return (
+    <ResultPage
+      inputs={inputs}
+      onReset={() => {
+        setInputs(null)
+        setStage('landing')
+      }}
+    />
+  )
 }

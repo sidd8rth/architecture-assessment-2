@@ -2,10 +2,12 @@ import { useState } from 'react'
 import type { UserInputs, Environment, OrgSize, Industry, Concern, Maturity } from '../../lib/types'
 import industriesData from '../../data/industries.json'
 import concernsData from '../../data/concerns.json'
-import Logo from '../Logo'
+import Header from '../Header'
+import Footer from '../Footer'
 
 interface Props {
   onComplete: (inputs: UserInputs) => void
+  onBack?: () => void
 }
 
 const STEPS = ['Environment', 'Organization Size', 'Industry', 'Security Concerns', 'Security Maturity']
@@ -30,7 +32,7 @@ const MATURITY_OPTIONS: { id: Maturity; label: string; sub: string }[] = [
   { id: 'mature', label: 'Mature', sub: 'Comprehensive program, looking to optimize' },
 ]
 
-export default function Wizard({ onComplete }: Props) {
+export default function Wizard({ onComplete, onBack }: Props) {
   const [step, setStep] = useState(0)
   const [environment, setEnvironment] = useState<Environment | null>(null)
   const [size, setSize] = useState<OrgSize | null>(null)
@@ -84,11 +86,15 @@ export default function Wizard({ onComplete }: Props) {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
-      {/* Header */}
-      <header className="bg-white border-b border-[#E5E5E5] px-6 py-4 flex items-center justify-between">
-        <Logo height={52} />
-        <span className="text-sm text-gray-500">Step {step + 1} of {STEPS.length}</span>
-      </header>
+      <Header
+        caption="ARCHITECTURE BUILDER"
+        breadcrumb={[
+          { label: 'Home', href: 'https://www.airtel.in/business' },
+          { label: 'Security', href: 'https://www.airtel.in/b2b/secure-workforce' },
+          { label: 'Architecture Builder', onClick: onBack },
+          { label: `Step ${step + 1} of ${STEPS.length} · ${STEPS[step]}` },
+        ]}
+      />
 
       {/* Progress bar */}
       <div className="h-1 bg-[#E5E5E5]">
@@ -99,23 +105,26 @@ export default function Wizard({ onComplete }: Props) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-2xl">
-          {/* Step labels */}
-          <div className="flex gap-2 mb-6 overflow-x-auto">
+      <div className="flex-1 flex items-center justify-center px-4 py-10 md:py-16">
+        <div className="w-full max-w-2xl animate-fadeUp">
+          {/* Compact step dots */}
+          <div className="flex items-center gap-1.5 mb-7">
             {STEPS.map((s, i) => (
-              <div key={s} className="flex items-center gap-1 shrink-0">
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
-                  i < step ? 'bg-[#E40000] text-white' :
-                  i === step ? 'border-2 border-[#E40000] text-[#E40000]' :
-                  'border-2 border-[#E5E5E5] text-gray-400'
-                }`}>
-                  {i < step ? '✓' : i + 1}
-                </div>
-                <span className={`text-xs font-medium ${i === step ? 'text-[#1A1A1A]' : 'text-gray-400'}`}>{s}</span>
-                {i < STEPS.length - 1 && <span className="text-gray-300 ml-1">›</span>}
-              </div>
+              <div
+                key={s}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i < step
+                    ? 'w-6 bg-[#E40000]'
+                    : i === step
+                    ? 'w-12 bg-[#E40000]'
+                    : 'w-6 bg-[#E5E5E5]'
+                }`}
+                title={s}
+              />
             ))}
+            <span className="ml-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              {STEPS[step]}
+            </span>
           </div>
 
           {/* Step 0: Environment */}
@@ -266,6 +275,7 @@ export default function Wizard({ onComplete }: Props) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
