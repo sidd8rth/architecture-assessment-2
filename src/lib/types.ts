@@ -1,4 +1,4 @@
-export type Environment = 'on_prem' | 'hybrid' | 'multi_cloud' | 'saas_heavy'
+export type Environment = 'on_prem' | 'hybrid' | 'multi_cloud'
 export type OrgSize = 'small' | 'mid' | 'large' | 'xlarge'
 export type Industry = 'bfsi' | 'manufacturing_ot' | 'healthcare' | 'it_ites' | 'retail_ecomm' | 'govt_psu'
 export type Concern =

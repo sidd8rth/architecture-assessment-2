@@ -121,9 +121,15 @@ export function buildTiers(
   // Deduplicate source first — guards against any import/HMR double-load edge cases
   const unique = dedup(scored)
 
-  const foundationalMandated = unique.filter(
-    s => s.status === 'foundational' || s.status === 'mandated'
-  )
+  // Foundational items must always come first so size caps never drop them.
+  // Sort: foundational → mandated, then by score desc within each group.
+  const foundationalMandated = unique
+    .filter(s => s.status === 'foundational' || s.status === 'mandated')
+    .sort((a, b) => {
+      if (a.status === 'foundational' && b.status !== 'foundational') return -1
+      if (a.status !== 'foundational' && b.status === 'foundational') return 1
+      return b.score - a.score
+    })
   const recommended = unique
     .filter(s => s.status === 'recommended')
     .sort((a, b) => b.score - a.score)
@@ -161,8 +167,7 @@ function envLabel(id: string): string {
   const map: Record<string, string> = {
     on_prem: 'on-premises',
     hybrid: 'hybrid cloud',
-    multi_cloud: 'multi-cloud',
-    saas_heavy: 'SaaS-heavy',
+    multi_cloud: 'cloud-first',
   }
   return map[id] ?? id
 }

@@ -2,18 +2,20 @@ import { useState } from 'react'
 import type { UserInputs, Environment, OrgSize, Industry, Concern, Maturity } from '../../lib/types'
 import industriesData from '../../data/industries.json'
 import concernsData from '../../data/concerns.json'
+import Header from '../Header'
+import Footer from '../Footer'
 
 interface Props {
   onComplete: (inputs: UserInputs) => void
+  onBack?: () => void
 }
 
 const STEPS = ['Environment', 'Organization Size', 'Industry', 'Security Concerns', 'Security Maturity']
 
 const ENV_OPTIONS: { id: Environment; label: string; icon: string; sub: string }[] = [
-  { id: 'on_prem', label: 'On-Premises', icon: '🏢', sub: 'Mostly on-premises infrastructure' },
-  { id: 'hybrid', label: 'Hybrid', icon: '🔀', sub: 'Mix of on-prem and cloud' },
-  { id: 'multi_cloud', label: 'Multi-Cloud', icon: '☁️', sub: 'AWS + Azure + GCP' },
-  { id: 'saas_heavy', label: 'SaaS-Heavy', icon: '🌐', sub: 'Primarily SaaS-based' },
+  { id: 'on_prem',     label: 'On-Premises', icon: '🏢', sub: '' },
+  { id: 'hybrid',      label: 'Hybrid',      icon: '🔀', sub: '' },
+  { id: 'multi_cloud', label: 'Cloud-First', icon: '☁️', sub: '' },
 ]
 
 const SIZE_OPTIONS: { id: OrgSize; label: string; sub: string }[] = [
@@ -29,7 +31,7 @@ const MATURITY_OPTIONS: { id: Maturity; label: string; sub: string }[] = [
   { id: 'mature', label: 'Mature', sub: 'Comprehensive program, looking to optimize' },
 ]
 
-export default function Wizard({ onComplete }: Props) {
+export default function Wizard({ onComplete, onBack }: Props) {
   const [step, setStep] = useState(0)
   const [environment, setEnvironment] = useState<Environment | null>(null)
   const [size, setSize] = useState<OrgSize | null>(null)
@@ -82,50 +84,52 @@ export default function Wizard({ onComplete }: Props) {
   const progress = ((step) / STEPS.length) * 100
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
-      {/* Header */}
-      <header className="bg-white border-b border-[#E5E5E5] px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="bg-[#E40000] rounded px-2 py-1">
-            <span className="text-white font-bold text-lg tracking-tight">airtel</span>
-          </div>
-          <span className="text-[#1A1A1A] font-semibold text-sm tracking-wide uppercase">Secure — Architecture Builder</span>
-        </div>
-        <span className="text-sm text-gray-500">Step {step + 1} of {STEPS.length}</span>
-      </header>
+    <div className="h-screen bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0] flex flex-col overflow-hidden">
+      <Header
+        caption="Architecture Builder"
+        breadcrumb={[
+          { label: 'Home', href: 'https://www.airtel.in/business' },
+          { label: 'Security', href: 'https://www.airtel.in/b2b/secure-workforce' },
+          { label: 'Architecture Builder', onClick: onBack },
+          { label: `Step ${step + 1} of ${STEPS.length} · ${STEPS[step]}` },
+        ]}
+      />
 
       {/* Progress bar */}
       <div className="h-1 bg-[#E5E5E5]">
         <div
-          className="h-1 bg-[#E40000] transition-all duration-500"
+          className="h-1 bg-gradient-to-r from-[#E40000] to-[#B30000] transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-2xl">
-          {/* Step labels */}
-          <div className="flex gap-2 mb-6 overflow-x-auto">
+      <div className="flex-1 flex items-center justify-center px-4 py-6 md:py-8 overflow-y-auto">
+        <div className="w-full max-w-2xl animate-fadeUp">
+          {/* Compact step dots */}
+          <div className="flex items-center gap-1.5 mb-7">
             {STEPS.map((s, i) => (
-              <div key={s} className="flex items-center gap-1 shrink-0">
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
-                  i < step ? 'bg-[#E40000] text-white' :
-                  i === step ? 'border-2 border-[#E40000] text-[#E40000]' :
-                  'border-2 border-[#E5E5E5] text-gray-400'
-                }`}>
-                  {i < step ? '✓' : i + 1}
-                </div>
-                <span className={`text-xs font-medium ${i === step ? 'text-[#1A1A1A]' : 'text-gray-400'}`}>{s}</span>
-                {i < STEPS.length - 1 && <span className="text-gray-300 ml-1">›</span>}
-              </div>
+              <div
+                key={s}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i < step
+                    ? 'w-6 bg-[#E40000]'
+                    : i === step
+                    ? 'w-12 bg-[#E40000]'
+                    : 'w-6 bg-[#E5E5E5]'
+                }`}
+                title={s}
+              />
             ))}
+            <span className="ml-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              {STEPS[step]}
+            </span>
           </div>
 
           {/* Step 0: Environment */}
           {step === 0 && (
             <StepShell title="What is your infrastructure environment?" subtitle="Select the option that best describes where your workloads live.">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 gap-3">
                 {ENV_OPTIONS.map(opt => (
                   <button
                     key={opt.id}
@@ -138,7 +142,6 @@ export default function Wizard({ onComplete }: Props) {
                   >
                     <div className="text-2xl mb-2">{opt.icon}</div>
                     <div className="font-semibold text-sm text-[#1A1A1A]">{opt.label}</div>
-                    <div className="text-xs text-gray-500 mt-1">{opt.sub}</div>
                   </button>
                 ))}
               </div>
@@ -161,7 +164,6 @@ export default function Wizard({ onComplete }: Props) {
                   >
                     <div className="font-bold text-lg text-[#E40000]">{opt.label}</div>
                     <div className="text-xs text-[#1A1A1A] font-medium mt-1">users</div>
-                    <div className="text-xs text-gray-500 mt-2">{opt.sub}</div>
                   </button>
                 ))}
               </div>
@@ -223,7 +225,7 @@ export default function Wizard({ onComplete }: Props) {
 
           {/* Step 4: Maturity (optional) */}
           {step === 4 && (
-            <StepShell title="What is your current security maturity?" subtitle="Optional — helps tailor advisory recommendations. We'll infer if you skip.">
+            <StepShell title="What is your current security maturity?" subtitle="Optional. Helps tailor advisory recommendations; we'll infer it if you skip.">
               <div className="grid grid-cols-1 gap-3">
                 {MATURITY_OPTIONS.map(opt => (
                   <button
@@ -264,7 +266,7 @@ export default function Wizard({ onComplete }: Props) {
               <button
                 onClick={handleNext}
                 disabled={!canAdvance()}
-                className="px-6 py-2 rounded-lg bg-[#E40000] text-white text-sm font-semibold hover:bg-red-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150"
+                className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#E40000] to-[#C00000] text-white text-sm font-semibold hover:from-[#C00000] hover:to-[#A00000] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150 shadow-sm hover:shadow-md"
               >
                 {step === 4 ? 'Build My Architecture →' : 'Next →'}
               </button>
@@ -272,6 +274,7 @@ export default function Wizard({ onComplete }: Props) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
@@ -279,8 +282,8 @@ export default function Wizard({ onComplete }: Props) {
 function StepShell({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2">{title}</h2>
-      <p className="text-sm text-gray-500 mb-6">{subtitle}</p>
+      <h2 className="text-xl md:text-2xl font-semibold text-[#1A1A1A] mb-1.5 tracking-tight">{title}</h2>
+      <p className="text-sm text-gray-500 mb-5">{subtitle}</p>
       {children}
     </div>
   )

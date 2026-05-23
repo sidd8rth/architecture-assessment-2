@@ -4,8 +4,7 @@ import type { AdvisoryItem } from './advisory'
 const ENV_LABELS: Record<string, string> = {
   on_prem: 'on-premises',
   hybrid: 'hybrid cloud',
-  multi_cloud: 'multi-cloud',
-  saas_heavy: 'SaaS-heavy',
+  multi_cloud: 'cloud-first',
 }
 
 const SIZE_LABELS: Record<string, string> = {
@@ -57,9 +56,24 @@ export function generateNarrative(
   growthPath: string | null
 } {
   const tierLabel = tier === 'starter' ? 'Starter' : tier === 'standard' ? 'Standard' : 'Advanced'
-  const topConcerns = inputs.concerns.slice(0, 3).map(c => CONCERN_LABELS[c]).join(', ')
 
-  const intro = `Based on your inputs — a ${SIZE_LABELS[inputs.size]} ${INDUSTRY_LABELS[inputs.industry]} organization in a ${ENV_LABELS[inputs.environment]} environment, concerned about ${topConcerns} — we've recommended ${modules.length} core module${modules.length !== 1 ? 's' : ''} and ${advisoryItems.length} advisory engagement${advisoryItems.length !== 1 ? 's' : ''} in the ${tierLabel} tier.`
+  // Join concerns naturally: "A", "A and B", or "A, B and C"
+  const concernNames = inputs.concerns.slice(0, 3).map(c => CONCERN_LABELS[c])
+  const topConcerns =
+    concernNames.length <= 1
+      ? concernNames.join('')
+      : concernNames.length === 2
+      ? `${concernNames[0]} and ${concernNames[1]}`
+      : `${concernNames.slice(0, -1).join(', ')} and ${concernNames[concernNames.length - 1]}`
+
+  // Pick "a" vs "an" based on the first sound of the environment label
+  const envLabel = ENV_LABELS[inputs.environment]
+  const article = /^[aeiou]/i.test(envLabel) ? 'an' : 'a'
+
+  const moduleWord = modules.length === 1 ? 'core module' : 'core modules'
+  const advisoryWord = advisoryItems.length === 1 ? 'advisory engagement' : 'advisory engagements'
+
+  const intro = `For a ${SIZE_LABELS[inputs.size]} ${INDUSTRY_LABELS[inputs.industry]} organisation in ${article} ${envLabel} environment, with top concerns around ${topConcerns}, we've put together ${modules.length} ${moduleWord} and ${advisoryItems.length} ${advisoryWord} at the ${tierLabel} tier.`
 
   const moduleReasons = modules.map(m => {
     const parts: string[] = []
