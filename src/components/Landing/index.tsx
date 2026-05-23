@@ -43,9 +43,10 @@ export default function Landing({ onStart }: Props) {
 
                 {/* Body */}
                 <p className="mt-5 text-sm md:text-base text-gray-600 leading-relaxed">
-                  Answer five questions about your environment, scale, industry, and concerns.
-                  Get a personalised Airtel Secure architecture &mdash; visualised, explained, and
-                  mapped to Indian regulations, generated instantly in your browser.
+                  Answer five short questions about your environment, scale, industry, and
+                  top concerns. The tool generates a personalised Airtel Secure architecture,
+                  shows why each module was picked, and maps every recommendation to the
+                  Indian regulations you care about.
                 </p>
 
                 {/* CTA row */}
@@ -78,15 +79,15 @@ export default function Landing({ onStart }: Props) {
                 <div className="space-y-3">
                   <FeatureRow
                     title="Personalised in real time"
-                    body="Every recommendation is computed from your inputs"
+                    body="Every recommendation comes from your specific inputs, not a template."
                   />
                   <FeatureRow
                     title="Regulation-aware"
-                    body="Mapped to DPDP, RBI, SEBI, IRDAI &amp; CERT-In"
+                    body="DPDP, RBI, SEBI, IRDAI and CERT-In coverage shown upfront."
                   />
                   <FeatureRow
-                    title="Growth-aware roadmap"
-                    body="Deploy now, scale-up modules visible"
+                    title="Built for how you'll actually grow"
+                    body="See what to deploy today and what becomes relevant as you scale."
                   />
                 </div>
               </div>

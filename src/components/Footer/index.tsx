@@ -31,7 +31,7 @@ export default function Footer() {
         </div>
         <div className="mt-5 pt-5 border-t border-[#F0F0F0] text-xs text-gray-400">
           © 2026 Bharti Airtel Limited. Airtel Secure is a product of Airtel Business.
-          <span className="hidden sm:inline"> · Architecture recommendations are advisory in nature based on inputs provided. Consult an Airtel security expert for a formal assessment.</span>
+          <span className="hidden sm:inline"> · Recommendations shown here are guidance based on the inputs you provide. Talk to an Airtel security expert for a formal assessment.</span>
         </div>
       </div>
     </footer>

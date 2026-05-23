@@ -50,8 +50,9 @@ export default function CTA({ inputs, tier, moduleCount }: Props) {
       <div className="relative">
         <h3 className="text-2xl md:text-3xl font-bold mb-3">Ready to build this stack with Airtel?</h3>
         <p className="text-red-100 text-sm md:text-base mb-7 max-w-2xl mx-auto">
-          Our security consultants will review your architecture, validate the fit, and
-          provide a detailed implementation roadmap for your {INDUSTRY_LABELS[inputs.industry] ?? 'organisation'}.
+          Our security consultants will sit with your team, pressure-test this architecture
+          against your {INDUSTRY_LABELS[inputs.industry] ?? 'organisation'} reality, and put
+          together a deployment roadmap that actually fits.
         </p>
         <a
           href={contactHref}

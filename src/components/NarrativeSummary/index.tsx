@@ -31,7 +31,7 @@ export default function NarrativeSummary({ tier, intro, moduleReasons, regulatio
         <div>
           <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Recommendation Summary</div>
           <h3 className="text-lg font-semibold text-[#1A1A1A]">
-            Your recommended stack — {TIER_LABELS[tier]} tier
+            Your recommended stack  ·  {TIER_LABELS[tier]} tier
           </h3>
         </div>
       </div>

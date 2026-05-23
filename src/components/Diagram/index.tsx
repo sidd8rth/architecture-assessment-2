@@ -109,7 +109,7 @@ export default function Diagram({ activeModules, futureState, advisoryItems, inp
       {advisoryItems.length > 0 && (
         <div className="mb-3 border-2 border-dashed border-amber-400 rounded-xl bg-amber-50 p-4">
           <div className="text-xs font-semibold text-amber-700 uppercase tracking-widest mb-3">
-            Advisory Layer — How we get you there and keep you there
+            Advisory Layer  ·  How we get you there and keep you there
           </div>
           <div className="flex flex-wrap gap-2">
             {advisoryItems.map(item => (
@@ -205,7 +205,7 @@ function DiagramLayer({
       <div className={`text-xs font-semibold uppercase tracking-widest mb-2.5 ${
         isOperations ? 'text-blue-700' : 'text-gray-500'
       }`}>
-        {label}{isOperations ? ' — Always-On' : ''}
+        {label}{isOperations ? '  ·  Always-On' : ''}
       </div>
       <div className="flex flex-wrap gap-2">
         {modules.map((mod, idx) => (

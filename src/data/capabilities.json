@@ -31,7 +31,7 @@
       "SEBI"
     ],
     "is_foundational": true,
-    "description": "Network perimeter defense \u2014 first line against unauthorized traffic."
+    "description": "Your first line against unwanted inbound traffic at the network perimeter."
   },
   {
     "id": "anti_ddos",
@@ -57,7 +57,7 @@
       "CERT-In"
     ],
     "is_foundational": false,
-    "description": "Backbone-level DDoS scrubbing \u2014 Airtel's network-native advantage."
+    "description": "DDoS scrubbing that runs at the Airtel backbone, not just at your edge."
   },
   {
     "id": "ndr",
@@ -67,7 +67,8 @@
     "concerns_addressed": [
       "ransomware",
       "insider_threat",
-      "data_exfiltration"
+      "data_exfiltration",
+      "ot_iot_exposure"
     ],
     "environments": [
       "on_prem",
@@ -87,7 +88,7 @@
       "CERT-In"
     ],
     "is_foundational": false,
-    "description": "Network Detection & Response \u2014 catches lateral movement and east-west threats."
+    "description": "Spots lateral movement, east-west threats and OT anomalies that the perimeter misses."
   },
   {
     "id": "sse",
@@ -114,7 +115,7 @@
       "DPDP"
     ],
     "is_foundational": false,
-    "description": "Cloud-delivered security edge for distributed and remote workforces."
+    "description": "Cloud-delivered security edge for distributed teams and remote work."
   },
   {
     "id": "nac",
@@ -142,7 +143,7 @@
       "RBI"
     ],
     "is_foundational": false,
-    "description": "Network Access Control \u2014 controls who and what gets on the network."
+    "description": "Decides who and what gets onto your network, before they're on it."
   },
   {
     "id": "epp",
@@ -174,7 +175,7 @@
       "CERT-In"
     ],
     "is_foundational": true,
-    "description": "Endpoint Protection Platform \u2014 secures every user device."
+    "description": "Endpoint Protection Platform. Secures every laptop, server and mobile device."
   },
   {
     "id": "iam_workforce",
@@ -207,7 +208,7 @@
       "IRDAI"
     ],
     "is_foundational": true,
-    "description": "Identity governance, SSO, and MFA \u2014 controls who can access what."
+    "description": "Identity governance, single sign-on and MFA in one place."
   },
   {
     "id": "ddc",
@@ -234,7 +235,7 @@
       "DPDP"
     ],
     "is_foundational": false,
-    "description": "Finds and classifies sensitive data \u2014 foundation for DPDP compliance."
+    "description": "Finds and tags your sensitive data so you know what you're actually protecting."
   },
   {
     "id": "dlp",
@@ -264,7 +265,7 @@
       "IRDAI"
     ],
     "is_foundational": false,
-    "description": "Data Loss Prevention \u2014 stops sensitive data from leaving the org."
+    "description": "Stops sensitive data from leaving the org over email, USB or upload."
   },
   {
     "id": "vdi",
@@ -288,7 +289,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Virtual Desktop Infrastructure \u2014 for contractors and BYOD environments."
+    "description": "Virtual Desktop Infrastructure for contractors, third parties and BYOD."
   },
   {
     "id": "email_sec",
@@ -316,7 +317,7 @@
     ],
     "regulations": [],
     "is_foundational": true,
-    "description": "Phishing, BEC, and email-borne malware protection."
+    "description": "Catches phishing, BEC and malware before they reach the inbox."
   },
   {
     "id": "browser_sec",
@@ -340,7 +341,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Enterprise browser security for SaaS-heavy environments."
+    "description": "Enterprise browser controls for SaaS-heavy and remote teams."
   },
   {
     "id": "waap",
@@ -368,7 +369,7 @@
       "DPDP"
     ],
     "is_foundational": false,
-    "description": "WAF + API security \u2014 protects public-facing apps and APIs."
+    "description": "WAF plus API protection for your public-facing applications."
   },
   {
     "id": "dam",
@@ -397,7 +398,7 @@
       "IRDAI"
     ],
     "is_foundational": false,
-    "description": "Database Activity Monitoring \u2014 audits every DB query."
+    "description": "Database Activity Monitoring. Audits every query against sensitive tables."
   },
   {
     "id": "cnapp",
@@ -425,7 +426,7 @@
       "RBI"
     ],
     "is_foundational": false,
-    "description": "Cloud-Native App Protection Platform \u2014 full-stack cloud security."
+    "description": "Cloud-Native App Protection Platform. Full-stack cloud security in one console."
   },
   {
     "id": "appsec",
@@ -448,7 +449,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Application security testing across the SDLC."
+    "description": "Application security testing across your SDLC, from code to production."
   },
   {
     "id": "dspm",
@@ -498,7 +499,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Identity for workloads, services, and machine-to-machine access."
+    "description": "Identity for workloads, services and machine-to-machine access."
   },
   {
     "id": "cloud_ai_sec",
@@ -522,7 +523,7 @@
       "DPDP"
     ],
     "is_foundational": false,
-    "description": "Security for AI/LLM workloads and AI-generated content risks."
+    "description": "Security guardrails for AI and LLM workloads and the data they touch."
   },
   {
     "id": "ai_soc_mdr",
@@ -579,7 +580,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Curated threat intelligence feeds tuned to Indian threat landscape."
+    "description": "Threat intelligence feeds curated for Indian attackers and TTPs."
   },
   {
     "id": "dark_web_mon",
@@ -604,7 +605,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Monitors leaked credentials and chatter targeting your brand."
+    "description": "Watches the deep and dark web for leaked credentials and brand chatter."
   },
   {
     "id": "patch_mgmt",
@@ -633,7 +634,7 @@
       "CERT-In"
     ],
     "is_foundational": false,
-    "description": "Centralized policy enforcement and vulnerability patching."
+    "description": "Centralised policy enforcement and vulnerability patching across estates."
   },
   {
     "id": "vapt",
@@ -663,7 +664,7 @@
       "CERT-In"
     ],
     "is_foundational": false,
-    "description": "Vulnerability Assessment & Penetration Testing \u2014 find gaps before attackers."
+    "description": "Vulnerability Assessment and Penetration Testing. Find the gaps before attackers do."
   },
   {
     "id": "complex_impl",
@@ -686,7 +687,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Expert-led deployment for complex, multi-module security stacks."
+    "description": "Expert-led deployment for multi-module security stacks."
   },
   {
     "id": "gap_risk",
@@ -718,7 +719,7 @@
       "CERT-In"
     ],
     "is_foundational": false,
-    "description": "Baseline security gap analysis against industry frameworks."
+    "description": "Baseline security gap analysis against industry frameworks and Indian regulations."
   },
   {
     "id": "red_blue",
@@ -742,7 +743,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Adversary simulation exercises for mature security programs."
+    "description": "Adversary simulation exercises for mature security programmes."
   },
   {
     "id": "ir_planning",
@@ -772,7 +773,7 @@
       "IRDAI"
     ],
     "is_foundational": false,
-    "description": "IR runbooks, playbooks, and tabletop exercises."
+    "description": "Incident response runbooks, playbooks and tabletop exercises."
   },
   {
     "id": "forensics_rca",
@@ -801,6 +802,6 @@
       "IRDAI"
     ],
     "is_foundational": false,
-    "description": "Post-breach forensics and root cause analysis."
+    "description": "Post-breach forensics and root cause analysis when an incident hits."
   }
 ]

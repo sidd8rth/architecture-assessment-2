@@ -12,9 +12,12 @@ export interface AdvisoryItem {
 export function inferMaturity(inputs: UserInputs): Maturity {
   if (inputs.maturity) return inputs.maturity
   const { size, industry } = inputs
-  if (size === 'xlarge' && ['bfsi', 'govt_psu', 'it_ites'].includes(industry)) return 'mature'
-  if (size === 'large') return 'developing'
-  if (size === 'mid') return 'developing'
+  // xlarge: BFSI / Govt / IT-ITES assumed mature (heavy regulatory pressure);
+  // other xlarge industries default to 'developing' (not nascent).
+  if (size === 'xlarge') {
+    return ['bfsi', 'govt_psu', 'it_ites'].includes(industry) ? 'mature' : 'developing'
+  }
+  if (size === 'large' || size === 'mid') return 'developing'
   return 'nascent'
 }
 
@@ -42,9 +45,15 @@ export function computeAdvisory(
     })
   }
 
-  // VAPT
-  const vaptIndustries = ['bfsi', 'it_ites', 'retail_ecomm', 'govt_psu', 'healthcare']
-  if (vaptIndustries.includes(industry) || concerns.includes('data_exfiltration') || concerns.includes('compliance_pressure')) {
+  // VAPT — applies to all regulated industries (including manufacturing OT) and
+  // any organisation worried about data exfiltration, compliance or OT/IoT exposure.
+  const vaptIndustries = ['bfsi', 'it_ites', 'retail_ecomm', 'govt_psu', 'healthcare', 'manufacturing_ot']
+  if (
+    vaptIndustries.includes(industry) ||
+    concerns.includes('data_exfiltration') ||
+    concerns.includes('compliance_pressure') ||
+    concerns.includes('ot_iot_exposure')
+  ) {
     const c = getCap('vapt')
     items.push({
       id: 'vapt',
@@ -70,7 +79,7 @@ export function computeAdvisory(
     items.push({
       id: 'complex_impl',
       ...c,
-      reason: `Your recommended stack has ${standardModuleCount} modules — expert deployment coordination prevents integration gaps.`,
+      reason: `With ${standardModuleCount} modules in your recommended stack, expert-led deployment keeps the integrations clean and prevents gaps between layers.`,
     })
   }
 

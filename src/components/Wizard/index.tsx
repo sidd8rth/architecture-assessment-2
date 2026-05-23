@@ -225,7 +225,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
 
           {/* Step 4: Maturity (optional) */}
           {step === 4 && (
-            <StepShell title="What is your current security maturity?" subtitle="Optional — helps tailor advisory recommendations. We'll infer if you skip.">
+            <StepShell title="What is your current security maturity?" subtitle="Optional. Helps tailor advisory recommendations; we'll infer it if you skip.">
               <div className="grid grid-cols-1 gap-3">
                 {MATURITY_OPTIONS.map(opt => (
                   <button
