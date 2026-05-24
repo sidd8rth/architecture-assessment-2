@@ -12,7 +12,15 @@
       "Bash(npm run *)",
       "Bash(curl -s http://localhost:5173)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(kill 28350)"
+      "Bash(kill 28350)",
+      "Read(//private/tmp/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(mkdir -p /tmp/docx-extract)",
+      "Read(//tmp/**)",
+      "Bash(unzip -o \"/Users/siporwal/Downloads/Airtel Architecture Updates.docx\")",
+      "Bash(ls word/media/)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

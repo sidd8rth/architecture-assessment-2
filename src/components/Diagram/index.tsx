@@ -10,18 +10,26 @@ const REG_COLORS: Record<string, string> = {
   'CERT-In': '#B45309',
 }
 
-const BUCKET_ORDER = ['secure_access', 'secure_workforce', 'secure_workload', 'managed_services']
+const BUCKET_ORDER = ['network_security', 'secure_workforce', 'secure_workload', 'managed_services']
 const BUCKET_LABELS: Record<string, string> = {
-  secure_access: 'Secure Access',
+  network_security: 'Network Security',
   secure_workforce: 'Secure Workforce',
   secure_workload: 'Secure Workload',
   managed_services: 'Managed Services',
 }
 
-const ENV_ICONS: Record<string, string> = {
-  on_prem: '🏢',
-  hybrid: '🔀',
-  multi_cloud: '☁️',
+import Icon, { type IconName } from '../Icon'
+
+const ENV_ICONS: Record<string, IconName> = {
+  on_prem: 'building',
+  hybrid: 'shuffle',
+  multi_cloud: 'cloud',
+}
+
+const ENV_DISPLAY: Record<string, string> = {
+  on_prem: 'On-Premises',
+  hybrid: 'Hybrid',
+  multi_cloud: 'Cloud-First',
 }
 
 const SIZE_LABELS: Record<string, string> = {
@@ -148,9 +156,11 @@ export default function Diagram({ activeModules, futureState, advisoryItems, inp
       {/* Environment card */}
       <div className="mt-3 flex justify-center">
         <div className="border-2 border-[#E40000] rounded-xl bg-[#FFF0F0] px-6 py-3 text-center max-w-md w-full">
-          <div className="text-2xl mb-1">{ENV_ICONS[inputs.environment]}</div>
+          <div className="mb-1.5 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white text-[#E40000]">
+            <Icon name={ENV_ICONS[inputs.environment]} size={20} />
+          </div>
           <div className="text-sm font-semibold text-[#1A1A1A]">{INDUSTRY_LABELS[inputs.industry]}</div>
-          <div className="text-xs text-gray-500 mt-1">{SIZE_LABELS[inputs.size]} · {inputs.environment.replace('_', ' ')}</div>
+          <div className="text-xs text-gray-500 mt-1">{SIZE_LABELS[inputs.size]} · {ENV_DISPLAY[inputs.environment]}</div>
           <div className="flex flex-wrap justify-center gap-1 mt-2">
             {inputs.concerns.slice(0, 3).map(c => (
               <span key={c} className="px-2 py-0.5 rounded-full bg-red-100 text-[#E40000] text-xs font-medium">
