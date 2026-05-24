@@ -2,7 +2,7 @@
   {
     "id": "firewall",
     "name": "Firewall",
-    "bucket": "secure_access",
+    "bucket": "network_security",
     "layer": "perimeter",
     "concerns_addressed": [
       "ransomware",
@@ -36,7 +36,7 @@
   {
     "id": "anti_ddos",
     "name": "Anti-DDoS",
-    "bucket": "secure_access",
+    "bucket": "network_security",
     "layer": "perimeter",
     "concerns_addressed": [
       "ddos"
@@ -62,7 +62,7 @@
   {
     "id": "ndr",
     "name": "NDR",
-    "bucket": "secure_access",
+    "bucket": "network_security",
     "layer": "perimeter",
     "concerns_addressed": [
       "ransomware",
@@ -93,7 +93,7 @@
   {
     "id": "sse",
     "name": "Secure Service Edge",
-    "bucket": "secure_access",
+    "bucket": "network_security",
     "layer": "perimeter",
     "concerns_addressed": [
       "third_party_risk",
@@ -120,7 +120,7 @@
   {
     "id": "nac",
     "name": "NAC",
-    "bucket": "secure_access",
+    "bucket": "network_security",
     "layer": "perimeter",
     "concerns_addressed": [
       "insider_threat",
@@ -341,7 +341,7 @@
     ],
     "regulations": [],
     "is_foundational": false,
-    "description": "Enterprise browser controls for SaaS-heavy and remote teams."
+    "description": "Enterprise browser controls for cloud-first and remote teams."
   },
   {
     "id": "waap",

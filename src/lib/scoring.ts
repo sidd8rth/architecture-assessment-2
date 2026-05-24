@@ -20,6 +20,12 @@ function sizeLabel(size: string): string {
   return map[size] ?? size
 }
 
+// Buckets handled by the Advisory Overlay (NOT the main scoring engine).
+// Spec: "Advisory items (Professional Services + Incident Response) don't slot
+// into the architecture diagram the same way. They wrap around it. Apply these
+// rules SEPARATELY from the main scoring."
+const ADVISORY_BUCKETS = new Set(['professional_services', 'incident_response'])
+
 export function scoreCapability(
   cap: Capability,
   inputs: UserInputs,
@@ -27,6 +33,17 @@ export function scoreCapability(
 ): ScoredCapability {
   const userSizeOrdinal = SIZE_ORDINAL[inputs.size]
   const capSizeOrdinal = SIZE_ORDINAL[cap.min_size]
+
+  // Advisory bucket items must never appear in the main diagram layers.
+  if (ADVISORY_BUCKETS.has(cap.bucket)) {
+    return {
+      ...cap,
+      score: 0,
+      status: 'excluded',
+      reasons: [],
+      matchedRegulations: [],
+    }
+  }
 
   const envMatch = cap.environments.includes(inputs.environment)
   const sizeOk = userSizeOrdinal >= capSizeOrdinal

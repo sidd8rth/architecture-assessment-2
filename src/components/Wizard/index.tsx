@@ -16,7 +16,7 @@ const STEPS = ['Environment', 'Organization Size', 'Industry', 'Security Concern
 const ENV_OPTIONS: { id: Environment; label: string; icon: IconName; sub: string }[] = [
   { id: 'on_prem',     label: 'On-Premises', icon: 'building', sub: 'Mostly on-prem infrastructure' },
   { id: 'hybrid',      label: 'Hybrid',      icon: 'shuffle',  sub: 'Mix of on-prem and cloud' },
-  { id: 'multi_cloud', label: 'Cloud-First', icon: 'cloud',    sub: 'Multi-cloud or SaaS-heavy stack' },
+  { id: 'multi_cloud', label: 'Cloud-First', icon: 'cloud',    sub: 'Multi-cloud or cloud-native stack' },
 ]
 
 const SIZE_OPTIONS: { id: OrgSize; label: string; icon: IconName; sub: string }[] = [
@@ -129,7 +129,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
 
           {/* Step 1: Size */}
           {step === 1 && (
-            <StepShell stepNum={2} totalSteps={STEPS.length} title="How large is your organization?" subtitle="We calibrate module recommendations to your scale.">
+            <StepShell stepNum={2} totalSteps={STEPS.length} title="How large is your organisation?" subtitle="We calibrate module recommendations to your scale.">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {SIZE_OPTIONS.map(opt => (
                   <OptionCard
