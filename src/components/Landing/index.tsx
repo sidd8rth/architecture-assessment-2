@@ -29,7 +29,7 @@ export default function Landing({ onStart }: Props) {
               <div>
                 {/* Stat pill */}
                 <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#FFE5E5] text-[#E40000] text-xs font-bold tracking-wider uppercase">
-                  5 Questions &middot; 29 Modules &middot; ~60 Seconds
+                  5 Questions &middot; ~60 Seconds
                 </div>
 
                 {/* Headline */}
