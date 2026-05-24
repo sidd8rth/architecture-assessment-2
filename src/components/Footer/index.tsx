@@ -10,10 +10,10 @@ const FOOTER_LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-[#E5E5E5] mt-auto">
-      <div className="max-w-6xl mx-auto px-6 py-6">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+      <div className="max-w-6xl mx-auto px-6 py-3">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <div className="flex items-center">
-            <Logo height={64} />
+            <Logo height={48} />
           </div>
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {FOOTER_LINKS.map(link => (
@@ -29,7 +29,7 @@ export default function Footer() {
             ))}
           </nav>
         </div>
-        <div className="mt-5 pt-5 border-t border-[#F0F0F0] text-xs text-gray-400">
+        <div className="mt-3 pt-3 border-t border-[#F0F0F0] text-xs text-gray-400">
           © 2026 Bharti Airtel Limited. Airtel Secure is a product of Airtel Business.
         </div>
       </div>
