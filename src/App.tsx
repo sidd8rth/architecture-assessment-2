@@ -3,6 +3,7 @@ import type { UserInputs, Tier, ScoredCapability } from './lib/types'
 import { scoreCapability, buildTiers } from './lib/scoring'
 import { computeAdvisory, inferMaturity } from './lib/advisory'
 import { generateNarrative } from './lib/narrative'
+import { generatePdf } from './lib/pdf'
 import capabilitiesData from './data/capabilities.json'
 import regulationsData from './data/regulations.json'
 import type { Capability } from './lib/types'
@@ -94,12 +95,39 @@ function ResultPage({ inputs, onReset }: { inputs: UserInputs; onReset: () => vo
         ]}
         sticky
         rightSlot={
-          <button
-            onClick={onReset}
-            className="hidden sm:inline-flex items-center px-4 py-2.5 border border-[#E5E5E5] rounded-lg text-sm font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all"
-          >
-            ← Start Over
-          </button>
+          <div className="hidden sm:flex items-center gap-2">
+            <button
+              onClick={() =>
+                generatePdf({
+                  inputs,
+                  tier,
+                  modules: activeModules,
+                  advisoryItems,
+                  narrative: { intro, moduleReasons, regulationsCovered, growthPath },
+                  totalCounts: {
+                    modules: activeModules.length,
+                    advisory: advisoryItems.length,
+                    regs: regulationsCovered.length,
+                  },
+                })
+              }
+              className="inline-flex items-center gap-2 px-4 py-2.5 border border-[#E5E5E5] rounded-lg text-sm font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all"
+              title="Download a PDF report of this architecture"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
+              </svg>
+              Download Report
+            </button>
+            <button
+              onClick={onReset}
+              className="inline-flex items-center px-4 py-2.5 border border-[#E5E5E5] rounded-lg text-sm font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all"
+            >
+              ← Start Over
+            </button>
+          </div>
         }
       />
 
