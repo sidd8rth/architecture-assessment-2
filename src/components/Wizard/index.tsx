@@ -85,7 +85,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
   const progress = ((step) / STEPS.length) * 100
 
   return (
-    <div className="h-screen bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0] flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0] flex flex-col">
       <Header
         caption="Architecture Builder"
         breadcrumb={[
@@ -105,7 +105,7 @@ export default function Wizard({ onComplete, onBack }: Props) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex items-start sm:items-center justify-center px-4 py-4 md:py-6 overflow-y-auto">
+      <div className="flex-1 flex items-start sm:items-center justify-center px-4 py-6 md:py-10">
         <div className="w-full max-w-3xl animate-fadeUp my-auto">
           <div className="bg-white rounded-3xl border border-[#EAEAEA] shadow-[0_2px_24px_-8px_rgba(0,0,0,0.08)] p-5 sm:p-6 md:p-8 lg:p-10">
 

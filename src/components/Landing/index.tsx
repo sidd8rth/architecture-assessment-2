@@ -7,7 +7,7 @@ interface Props {
 
 export default function Landing({ onStart }: Props) {
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0] overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F5] to-[#F0F0F0]">
       <Header
         caption="Architecture Builder"
         breadcrumb={[
